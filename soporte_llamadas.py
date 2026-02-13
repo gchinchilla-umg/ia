@@ -19,17 +19,17 @@ def verificar_condiciones_llamada(problemas_telefono):
     """
     # Reglas combinadas primera linea
     
-    # Combinacion 1: Sin señal y modo avion activado
-    if "sin_señal" in problemas_telefono and "modo_avion" in problemas_telefono:
-        return "Modo avion activado. Desactive el modo avion para recuperar la señal y poder realizar llamadas."
+    # Combinacion 1: Sin senal y modo avion activado
+    if "sin_senal" in problemas_telefono and "modo_avion" in problemas_telefono:
+        return "Modo avion activado. Desactive el modo avion para recuperar la senal y poder realizar llamadas."
     
-    # Combinacion 2: Sin señal y zona rural
-    elif "sin_señal" in problemas_telefono and "zona_rural" in problemas_telefono:
-        return "Problema de cobertura en zona rural. Intente moverse a un area con mejor señal."
+    # Combinacion 2: Sin senal y zona rural
+    elif "sin_senal" in problemas_telefono and "zona_rural" in problemas_telefono:
+        return "Problema de cobertura en zona rural. Intente moverse a un area con mejor senal."
     
-    # Combinacion 3: Sin señal y batería baja
-    elif "sin_señal" in problemas_telefono and "bateria_baja" in problemas_telefono:
-        return "Señal debil y batería baja. La búsqueda continua de señal consume mas batería. Cargue el dispositivo para mejorar la recepcion."
+    # Combinacion 3: Sin senal y batería baja
+    elif "sin_senal" in problemas_telefono and "bateria_baja" in problemas_telefono:
+        return "Senal debil y batería baja. La búsqueda continua de senal consume mas batería. Cargue el dispositivo para mejorar la recepcion."
     
     # Combinacion 4: Sin SIM y dispositivo nuevo
     elif "sin_sim" in problemas_telefono and "sim_nueva" in problemas_telefono:
@@ -43,17 +43,17 @@ def verificar_condiciones_llamada(problemas_telefono):
     elif "numero_invalido" in problemas_telefono and "llamada_internacional" in problemas_telefono:
         return "Formato de número internacional incorrecto. Asegúrese de incluir el codigo de país con el formato adecuado (ej: +502 para Guatemala)."
     
-    # Combinacion 7: Señal debil y batería baja
-    elif "señal_debil" in problemas_telefono and "bateria_baja" in problemas_telefono:
-        return "Señal debil y batería baja. La búsqueda continua de señal consume mas batería. Cargue el dispositivo y busque mejor cobertura."
+    # Combinacion 7: Senal debil y batería baja
+    elif "senal_debil" in problemas_telefono and "bateria_baja" in problemas_telefono:
+        return "Senal debil y batería baja. La búsqueda continua de senal consume mas batería. Cargue el dispositivo y busque mejor cobertura."
     
     # Combinacion 8: Problemas de red y saldo bajo
     elif ("red_inestable" in problemas_telefono or "red_congestionada" in problemas_telefono) and "saldo_bajo" in problemas_telefono:
-        return "Red inestable y saldo bajo. La reconexion continua puede consumir saldo adicional. Espere a tener mejor señal antes de intentar llamar."
+        return "Red inestable y saldo bajo. La reconexion continua puede consumir saldo adicional. Espere a tener mejor senal antes de intentar llamar."
     
-    # Combinacion 9: Sin señal y en edificio
-    elif "sin_señal" in problemas_telefono and "en_edificio" in problemas_telefono:
-        return "Señal bloqueada por estructura del edificio. Acerquese a una ventana o salga al exterior para mejorar la recepcion."
+    # Combinacion 9: Sin senal y en edificio
+    elif "sin_senal" in problemas_telefono and "en_edificio" in problemas_telefono:
+        return "Senal bloqueada por estructura del edificio. Acerquese a una ventana o salga al exterior para mejorar la recepcion."
     
     # Combinacion 10: Llamada bloqueada y número desconocido
     elif "llamada_bloqueada" in problemas_telefono and "numero_desconocido" in problemas_telefono:
@@ -61,9 +61,9 @@ def verificar_condiciones_llamada(problemas_telefono):
     
     # Reglas simples (se aplican si no hay combinaciones)
     
-    # Regla 1: Sin señal → Problema de cobertura
-    elif "sin_señal" in problemas_telefono:
-        return "Problema de cobertura. Verifique que no este en un area con señal limitada (sotanos, edificios, etc.)."
+    # Regla 1: Sin senal → Problema de cobertura
+    elif "sin_senal" in problemas_telefono:
+        return "Problema de cobertura. Verifique que no este en un area con senal limitada (sotanos, edificios, etc.)."
     
     # Regla 2: Sin SIM → SIM no instalada o mal colocada
     elif "sin_sim" in problemas_telefono:
@@ -97,9 +97,9 @@ def verificar_condiciones_llamada(problemas_telefono):
     elif "red_2g" in problemas_telefono:
         return "Conectado a red 2G con limitaciones. Intente cambiar a 3G/4G en la configuracion de red."
     
-    # Regla 10: Interferencia de señal
-    elif "señal_intermitente" in problemas_telefono:
-        return "Señal intermitente. Alejese de fuentes de interferencia como electrodomesticos o estructuras metalicas."
+    # Regla 10: Interferencia de senal
+    elif "senal_intermitente" in problemas_telefono:
+        return "Senal intermitente. Alejese de fuentes de interferencia como electrodomesticos o estructuras metalicas."
     
     # Si no se identifica ningún problema específico
     else:
@@ -111,7 +111,7 @@ def mostrar_opciones_problemas():
     Muestra las opciones de problemas disponibles para que el usuario seleccione.
     """
     print("\nOpciones de problemas disponibles:")
-    print("1. sin_señal - No hay señal de red")
+    print("1. sin_senal - No hay senal de red")
     print("2. zona_rural - Ubicado en zona rural")
     print("3. sin_sim - No se detecta la tarjeta SIM")
     print("4. sim_nueva - Tarjeta SIM recien adquirida")
@@ -124,8 +124,8 @@ def mostrar_opciones_problemas():
     print("11. numero_invalido - Número marcado invalido")
     print("12. llamada_bloqueada - Llamada rechazada por el sistema")
     print("13. red_2g - Conectado solo a red 2G")
-    print("14. señal_intermitente - Señal que aparece y desaparece")
-    print("15. señal_debil - Señal de baja intensidad")
+    print("14. senal_intermitente - Senal que aparece y desaparece")
+    print("15. senal_debil - Senal de baja intensidad")
     print("16. red_inestable - Red con problemas de estabilidad")
     print("17. red_congestionada - Red con muchos usuarios")
     print("18. saldo_bajo - Saldo casi agotado")
@@ -147,7 +147,7 @@ def procesar_entrada_usuario(entrada):
         list: Lista de problemas correspondientes a los números ingresados
     """
     opciones_problemas = {
-        "1": "sin_señal",
+        "1": "sin_senal",
         "2": "zona_rural",
         "3": "sin_sim",
         "4": "sim_nueva",
@@ -160,8 +160,8 @@ def procesar_entrada_usuario(entrada):
         "11": "numero_invalido",
         "12": "llamada_bloqueada",
         "13": "red_2g",
-        "14": "señal_intermitente",
-        "15": "señal_debil",
+        "14": "senal_intermitente",
+        "15": "senal_debil",
         "16": "red_inestable",
         "17": "red_congestionada",
         "18": "saldo_bajo",
