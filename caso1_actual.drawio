@@ -1,0 +1,123 @@
+﻿<mxfile host="app.diagrams.net" modified="2026-02-25T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="caso1" name="CASO 1 - AS-IS / Propuesta">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="CASO 1 - Automatizacion del Proceso de Bloqueo y Reactivacion por Mora" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="340" y="10" width="1240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="billing" value="Sistema de Facturacion (Billing)&#xa;Java + WebLogic + Oracle 19c&#xa;Job diario 02:00 AM: Facturas vencidas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="300" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cae" value="CAE - Collection Automation Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="430" y="70" width="640" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m1" value="Modulo de Facturas Vencidas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="470" y="120" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="Modulo de Conciliacion de Pagos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="670" y="120" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="Modulo de Bloqueo / React" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="470" y="190" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="Modulo de Notificaciones" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="670" y="190" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="auditdb" value="Base de Auditoria" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="885" y="130" width="150" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cash" value="Sistema Caja (Pagos)&#xa;.NET + Windows&#xa;Core IBM AS/400 + DB2&#xa;Job cada 30-60 min" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="90" width="320" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="broker" value="Message Broker (Cola de Eventos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="320" width="640" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="integracion" value="Integracion con Sistemas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="400" width="640" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="rules" value="Motor de Reglas&#xa;- Politica de bloqueo&#xa;- Validacion de deuda total&#xa;- Evitar duplicados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="460" y="440" width="260" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="legacy" value="Sistema Legado (Interfaz)&#xa;Comandos: BLOCK / UNBLOCK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="740" y="440" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="smsapi" value="SMS Center API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="740" y="540" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="client" value="Cliente (MSISDN)" style="shape=mxgraph.mockup.misc.user;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="920" y="530" width="120" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="network" value="Sistema de Red (Network Core)&#xa;Linux propietario + HPE ProLiant&#xa;Cola interna + PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="320" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f1" value="1. Identificacion&#xa;Facturas vencidas (Oracle)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="2. Bloqueo&#xa;Comando BLOCK + evento" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="350" y="650" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="3. Conciliacion&#xa;Pagos DB2 + validacion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="660" y="650" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="4. Reactivacion&#xa;Pago total - comando UNBLOCK + SMS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="970" y="650" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" value="Auditoria&#xa;Logs + Base de auditoria" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="650" width="220" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="Consulta" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4f81bd;endArrow=block;" edge="1" parent="1" source="billing" target="m1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="Datos de pagos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4f81bd;endArrow=block;" edge="1" parent="1" source="cash" target="m2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="Eventos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4f81bd;endArrow=block;" edge="1" parent="1" source="cae" target="broker">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="Eventos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4f81bd;endArrow=block;" edge="1" parent="1" source="broker" target="integracion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="BLOCK / UNBLOCK" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;dashed=1;endArrow=block;" edge="1" parent="1" source="legacy" target="network">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="Notificacion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;endArrow=block;" edge="1" parent="1" source="smsapi" target="client">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="Envio SMS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#82b366;endArrow=block;" edge="1" parent="1" source="m4" target="smsapi">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="Auditoria" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;endArrow=block;" edge="1" parent="1" source="m3" target="auditdb">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="Auditoria" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;endArrow=block;" edge="1" parent="1" source="m2" target="auditdb">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;endArrow=block;" edge="1" parent="1" source="f1" target="f2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;endArrow=block;" edge="1" parent="1" source="f2" target="f3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;endArrow=block;" edge="1" parent="1" source="f3" target="f4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#666666;endArrow=block;" edge="1" parent="1" source="f4" target="f5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

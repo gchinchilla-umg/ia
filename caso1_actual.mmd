@@ -1,0 +1,67 @@
+﻿flowchart LR
+  %% CASO 1 - Estado Actual AS-IS
+
+  subgraph COB[Area de Cobranza]
+    C1["08:00 - Ejecuta SQL en Billing<br/>para facturas vencidas"]
+    C2["Envia comando manual BLOCK<br/>por Subscriber ID en sistema legado"]
+    C3["Opera manualmente SMS Center<br/>para notificar bloqueo"]
+    C4["Al dia siguiente: conciliacion manual<br/>de pagos"]
+    C5["Si deuda total cubierta:<br/>envia comando manual UNBLOCK"]
+    C6["Envia SMS manual de agradecimiento"]
+  end
+
+  subgraph BILL[Sistema de Facturacion Billing]
+    B1["Java + WebLogic + Linux RHEL"]
+    B2["Oracle 19c"]
+    B3["No expone API<br/>consulta directa a BD"]
+  end
+
+  subgraph NET[Sistema de Red Network Core]
+    N1["Linux propietario<br/>HPE ProLiant"]
+    N2["Solo recibe comandos<br/>via sistema legado"]
+    N3["Cola interna"]
+    N4["PostgreSQL"]
+    N5["Aplica bloqueo MSISDN:<br/>entrantes, salientes y datos"]
+  end
+
+  subgraph SMS[Sistema SMS]
+    S1["SMS Center"]
+  end
+
+  subgraph CAJA[Sistema Caja]
+    K1["Web .NET en Windows Server"]
+    K2["Core de pagos IBM AS/400 IBM i"]
+    K3["DB2 for i"]
+    K4["Pagos se registran en DB2<br/>sin escritura directa en Billing"]
+  end
+
+  U["Cliente"]
+
+  C1 -->|Consulta SQL| B2
+  B1 --- B2
+  B2 --- B3
+
+  C2 -->|BLOCK manual| N2
+  N2 --> N3 --> N5
+  N1 --- N2
+  N4 --- N3
+
+  C3 --> S1 -->|SMS bloqueo| U
+  U -->|Realiza pago| K1
+  K1 --> K2 --> K3
+  K3 --> K4
+
+  C4 -->|Revisa pagos del dia anterior| K3
+  C4 -->|Valida deuda total| B2
+  C5 -->|UNBLOCK manual| N2
+  C6 --> S1
+
+  P1{"Politica de bloqueo por impago"}:::policy
+  P2["Dia siguiente al vencimiento:<br/>si no hay pago total => BLOCK"]:::policy
+  P3["Pago parcial no reactiva"]:::policy
+  P4["Con multiples facturas vencidas:<br/>exigir pago total"]:::policy
+  P5["Registrar acciones en auditoria<br/>y evitar duplicados"]:::policy
+
+  P1 --> P2 --> P3 --> P4 --> P5
+
+  classDef policy fill:#fff3cd,stroke:#d39e00,color:#333;
